@@ -56,7 +56,9 @@ function intentosMax() {
   if (contador >= intentos) {
     asignarTextoElemento(
       "p",
-      `Has alcanzado el número máximo de intentos, el cual era ${intentos} intentos.`
+      `Has alcanzado el número máximo de intentos, los cuales eran ${intentos} ${
+        intentos === 1 ? "intento" : "intentos"
+      }.`
     );
     d.getElementById("reiniciar").removeAttribute("disabled");
     // reiniciarJuego();
@@ -103,7 +105,7 @@ function condicionesIniciales() {
   asignarTextoElemento("h1", "Adivina el número secreto");
   asignarTextoElemento(
     "p",
-    `Introduce un número entre el 1 y el ${numeroMaximo}. Recuerda que tienes MÁXIMO ${intentos} intentos.`
+    `Introduce un número entre el 1 y el ${numeroMaximo}. Tienes ${intentos} intentos.`
   );
   contador = 0;
   numeroSecreto = generarNumeroAleatorio();
