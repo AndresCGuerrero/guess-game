@@ -1,5 +1,5 @@
 //VARIABLES
-// reasignar document a una variable para simplificar codigo
+// reasignar document a una variable para simplificar código
 let d = document;
 
 // llamar a la función que genera el numero aleatorio
@@ -8,32 +8,32 @@ let numeroSecreto = 0;
 // contador de intentos
 let contador = 0;
 
-//lista de numeros sorteados
+//lista de números sorteados
 let listaNumerosSorteados = [];
 
-//cantidad maxima de numeros sorteados
+//cantidad maxima de números sorteados
 let numeroMaximo = 10;
 
-//intentos maximos
+//intentos máximos
 let intentos = 3;
 
 /* let title = document.querySelector("h1");
 title.innerText = "Juego de adivinar el número";
 
-let info = document.getElementsByClassName("texto__parrafo")[0];
+let info = document.getElementsByClassName("texto__párrafo")[0];
 info.innerText = "Introduce un número entre 1 y 10";
 */
 
-// simplificacion de las lineas anteriores, haciendo el codigo reutilizable atraves de una funcion
+// simplificación de las lineas anteriores, haciendo el código reutilizable a través de una función
 function asignarTextoElemento(etiqueta, texto) {
   let elementoHTML = d.querySelector(etiqueta);
   elementoHTML.innerText = texto;
   return;
 }
 
-// funcion para generar un numero aleatorio entre 1 y 10
+// función para generar un numero aleatorio entre 1 y 10
 function generarNumeroAleatorio() {
-  //si ya sorteamos todos los numeros
+  //si ya sorteamos todos los números
   if (listaNumerosSorteados.length >= numeroMaximo) {
     asignarTextoElemento("p", "Ya se sortearon todos los números posibles.");
     return null;
@@ -42,7 +42,7 @@ function generarNumeroAleatorio() {
   let numeroGenerado = Math.floor(Math.random() * numeroMaximo) + 1;
 
   if (listaNumerosSorteados.includes(numeroGenerado)) {
-    //Si el numero generado esta incluido en la lista, hacmeos operacion
+    //Si el numero generado esta incluido en la lista, hacemos operación
     //sino, hacemos otra cosa
     return generarNumeroAleatorio();
   } else {
@@ -65,7 +65,7 @@ function intentosMax() {
   }
 }
 
-// funcion para verificar si el número introducido por el usuario es igual al número secreto
+// función para verificar si el número introducido por el usuario es igual al número secreto
 function verificarIntento() {
   let numeroUsuario = parseInt(document.getElementById("numeroUsuario").value);
 
@@ -115,11 +115,11 @@ function condicionesIniciales() {
 function reiniciarJuego() {
   // limpiar campo de texto
   limpiarCampo();
-  // Indicar mensaje de intervalo de numeros
+  // Indicar mensaje de intervalo de números
   // Generar nuevo numero aleatorio
   // Inicializar contador
   condicionesIniciales();
-  //Deshabilitar boton nuevo juego
+  //Deshabilitar botón nuevo juego
   d.querySelector("#reiniciar").setAttribute("disabled", true);
 }
 
